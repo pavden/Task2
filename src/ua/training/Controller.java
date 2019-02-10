@@ -20,20 +20,19 @@ public class Controller {
     // Method that runs the game
     public void runGame(){
         Scanner scanner = new Scanner(System.in);
-        scanner.useDelimiter("\n");
-
         view.printMessage(View.INVITATION);
 
         while (true) {
             view.printMessage(view.getNumberInputMessage(model.getCurrentRangeMin(), model.getCurrentRangeMax()));
+            String inputLine = scanner.nextLine();
+            int answer;
 
-            while (!scanner.hasNextInt()) {
+            try {
+                answer = Integer.parseInt(inputLine);
+            } catch (NumberFormatException e) {
                 view.printMessage(View.INCORRECT_DATA);
-                view.printMessage(view.getNumberInputMessage(model.getCurrentRangeMin(), model.getCurrentRangeMax()));
-                scanner.next();
+                continue;
             }
-
-            int answer = scanner.nextInt();
 
             if (answer < model.getCurrentRangeMin() || answer > model.getCurrentRangeMax()) {
                 view.printMessage(View.OUT_OF_RANGE);
