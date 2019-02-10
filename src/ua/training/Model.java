@@ -86,7 +86,7 @@ public class Model {
     }
 
     // Method adds the answer to the game history
-    private void addAnswerToGameHistory(int answer) {
+    public void addAnswerToGameHistory(int answer) {
         gameHistory.add(answer);
     }
 
