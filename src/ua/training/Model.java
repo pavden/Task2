@@ -63,4 +63,9 @@ public class Model {
         return gameHistory;
     }
 
+    // Method clears the game history
+    public void clearGameHistory() {
+        gameHistory.clear();
+    }
+
 }

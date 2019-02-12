@@ -14,6 +14,7 @@ public class View {
     public static final String DID_NOT_GUESS = "You didn\'t guess, try again!";
     public static final String CONGRATULATION = "Excellent!!! You guessed the number and won the game!!!";
     public static final String GAME_HISTORY = "Your game history is the following:";
+    public static final String WANT_PLAY_MORE = "Do you want to play one more round? 0 - No, 1 - Yes :";
 
     // Method returns a message asking to input the integer number in the range [min, max]
     public String getNumberInputMessage(int min, int max) {
