@@ -28,16 +28,15 @@ public class Controller {
         while (true) {
             view.printMessage(view.getNumberInputMessage(model.getCurrentRangeMin(), model.getCurrentRangeMax()));
             String inputLine = scanner.nextLine();
-            int answer;
 
-            try {
-                answer = Integer.parseInt(inputLine);
-            } catch (NumberFormatException e) {
+            if (!isInputIntNumber(inputLine)) {
                 view.printMessage(View.INCORRECT_DATA);
                 continue;
             }
 
-            if (answer <= model.getCurrentRangeMin() || answer >= model.getCurrentRangeMax()) {
+            int answer = Integer.parseInt(inputLine);
+
+            if (!isAnswerInRange(answer)) {
                 view.printMessage(View.OUT_OF_RANGE);
                 continue;
             }
@@ -53,6 +52,22 @@ public class Controller {
         }
 
         scanner.close();
+    }
+
+    // Method verifies whether the input is an integer number
+    private boolean isInputIntNumber(String inputLine) {
+        Scanner scanner = new Scanner(inputLine);
+        scanner.useDelimiter("\n");
+
+        boolean isInputIntNumber = scanner.hasNextInt();
+
+        scanner.close();
+        return isInputIntNumber;
+    }
+
+    // Method verifies whether the answer is in the acceptable range
+    private boolean isAnswerInRange(int answer) {
+        return answer > model.getCurrentRangeMin() && answer < model.getCurrentRangeMax();
     }
 
 }
