@@ -19,6 +19,9 @@ public class Controller {
 
     // Method that runs the game
     public void runGame(){
+        model.setHiddenNumberRange(Model.INITIAL_RANGE_MIN, Model.INITIAL_RANGE_MAX);
+        model.setHiddenNumber();
+
         Scanner scanner = new Scanner(System.in);
         view.printMessage(View.INVITATION);
 
@@ -34,17 +37,15 @@ public class Controller {
                 continue;
             }
 
-            if (answer < model.getCurrentRangeMin() || answer > model.getCurrentRangeMax()) {
+            if (answer <= model.getCurrentRangeMin() || answer >= model.getCurrentRangeMax()) {
                 view.printMessage(View.OUT_OF_RANGE);
                 continue;
             }
 
-            model.processAnswer(answer);
-
-            if (model.isGameOver()) {
+            if (model.isHiddenNumber(answer)) {
                 view.printMessage(View.CONGRATULATION);
                 view.printMessage(View.GAME_HISTORY);
-                view.printMessage(model.getGameHistory());
+                view.printMessage(String.valueOf(model.getGameHistory()));
                 break;
             } else {
                 view.printMessage(View.DID_NOT_GUESS);

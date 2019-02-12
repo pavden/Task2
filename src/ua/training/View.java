@@ -17,7 +17,7 @@ public class View {
 
     // Method returns a message asking to input the integer number in the range [min, max]
     public String getNumberInputMessage(int min, int max) {
-        return (NUMBER_INPUT + " [" + min + ", " + max + "]:");
+        return (NUMBER_INPUT + " ]" + min + ", " + max + "[:");
     }
 
     // Method prints a message to standard output
