@@ -25,6 +25,11 @@ public class Model {
         this.currentRangeMax = currentRangeMax;
     }
 
+    // Getter for a hidden number
+    public int getHiddenNumber() {
+        return hiddenNumber;
+    }
+
     // Method sets a hidden number for the game,
     // which is a pseudo-random integer number in the range ]min, max[
     public void setHiddenNumber() {
