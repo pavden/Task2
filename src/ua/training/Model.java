@@ -8,10 +8,6 @@ import java.util.ArrayList;
  */
 public class Model {
 
-    // Model constants
-    public static final int INITIAL_RANGE_MIN = 0;
-    public static final int INITIAL_RANGE_MAX = 100;
-
     private int currentRangeMin;
     private int currentRangeMax;
 

@@ -2,7 +2,7 @@
 package ua.training;
 
 import org.junit.Assert;
-import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 /**
@@ -10,12 +10,12 @@ import org.junit.Test;
  */
 public class ModelTest {
 
-    private Model model;
+    private static Model model;
 
-    @Before
-    public void initializeModel() {
+    @BeforeClass
+    public static void initializeModel() {
         model = new Model();
-        model.setHiddenNumberRange(Model.INITIAL_RANGE_MIN, Model.INITIAL_RANGE_MAX);
+        model.setHiddenNumberRange(0, 100);
     }
 
     @Test
@@ -29,7 +29,7 @@ public class ModelTest {
         }
 
         for (int hiddenNumber : hiddenNumbersArray) {
-            if (hiddenNumber <= Model.INITIAL_RANGE_MIN || hiddenNumber >= Model.INITIAL_RANGE_MAX) {
+            if (hiddenNumber <= 0 || hiddenNumber >= 100) {
                 hiddenNumberOutOfRange = true;
                 break;
             }
